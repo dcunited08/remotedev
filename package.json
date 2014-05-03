@@ -1,0 +1,14 @@
+{
+  "name": "remotedev",
+  "main": "./lib/remotedev",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "activationEvents": ["remotedev:toggle"],
+  "repository": "https://github.com/atom/remotedev",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+  }
+}

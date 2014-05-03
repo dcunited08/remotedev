@@ -1,0 +1,16 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  '.overlayer':
+      'Enable remotedev': 'remotedev:toggle'
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'remotedev'
+      'submenu': [
+        { 'label': 'Toggle', 'command': 'remotedev:toggle' }
+      ]
+    ]
+  }
+]
