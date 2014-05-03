@@ -1,0 +1,14 @@
+# Your RemoteDev config
+#
+#
+#		'dev-server':
+#		  'title': 'dev-server'
+#		  'path': '/Users/<username>/workspace/<project>'
+#		  'type': 'sftp' #currently only method supported
+#		  'connection':
+#		    'server': 'my-server.com'
+#		    'port': 22
+#		    'username': '<username>'
+#		    'password': '<passwd>'
+#
+#		  'remote_path': '/home/<username>/<project>'

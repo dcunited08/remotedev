@@ -7,9 +7,11 @@
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'remotedev'
+      'label': 'RemoteDev'
       'submenu': [
-        { 'label': 'Toggle', 'command': 'remotedev:toggle' }
+        { 'label': 'Edit Config', 'command': 'remotedev:edit-config' }
+        { 'label': 'Download', 'command': 'remotedev:download' }
+        { 'label': 'Upload', 'command': 'remotedev:upload' }
       ]
     ]
   }
