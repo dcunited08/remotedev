@@ -103,22 +103,22 @@ module.exports =
         @openProject(config)
 
     download: (directory)->
+      
+        
         console.log directory
         unless directory?
             directory = @project.remote_path
 
         console.log "should download #{directory}"
-        regex = "#{@project.remote_path}/"
-        console.log regex
-        regex = regex.replace(/\//, '_')
-        console.log regex
+        
 
-        local_directory = directory.replace(/"#{@project.remote_path}"/, @project.path)
+        local_directory = directory.replace(@project.remote_path, @project.path)
         console.log local_directory
 
-        rtn =
+        # rtn =
         @_verifyLocalDirectory local_directory
-        .then @sftp
+        # .then 
+        rtn = @sftp()
         .then (sftp) =>
             [sftp, directory]
         .then @_getRemoteFileList
@@ -133,9 +133,14 @@ module.exports =
             tst2 = for i, item of list
                 if @isDirectory item
                     @download "#{directory}/#{item.filename}"
-
+                    #console.log item
                 else
-                    @_downloadFile "#{directory}/#{item.filename}", "#{@project.path}/#{item.filename}"
+                    local_file = "#{local_directory}/#{item.filename}"
+                    console.log local_file
+                    remote_file = "#{directory}/#{item.filename}"
+                    console.log remote_file
+                    
+                    @_downloadFile remote_file, local_file
 
 
             # console.log tst2
@@ -161,6 +166,7 @@ module.exports =
 
 
     sftp: (unused) ->
+        console.log unused
         unless @_sftp?
           @_sftp = @do_conn()
                   .then @do_sftp
@@ -257,9 +263,11 @@ module.exports =
         deferred.promise
 
     _removeIgnoredFiles: (list) =>
+        
 
         list2 = for i, item of list
-            if item.filename isnt ".." and item.filename isnt "."
+            char = item.filename.charAt 0
+            if char isnt ".." and char isnt "."
                 item
             else
                 continue

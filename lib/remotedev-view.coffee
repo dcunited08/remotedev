@@ -18,7 +18,4 @@ class RemotedevView extends View
 
   toggle: ->
     console.log "RemotedevView was toggled!"
-    if @hasParent()
-      @detach()
-    else
-      atom.workspaceView.append(this)
+    
